@@ -2,7 +2,9 @@ name := "xmlsoap-ersatz"
 
 organization := "play2.tools.xml"
 
-version := "0.2-SNAPSHOT"
+version := "0.3-SNAPSHOT"
+
+scalaVersion := "2.10.0"
 
 libraryDependencies ++= Seq(
   "org.specs2" %% "specs2" % "1.7.1" % "test",
@@ -10,7 +12,7 @@ libraryDependencies ++= Seq(
 )
 
 publishTo <<=  version { (v: String) => 
-    val base = "../../workspace_mandubian/mandubian-mvn"
+    val base = "../../workspace_pawelprazak/pawelprazak-mvn"
 	if (v.trim.endsWith("SNAPSHOT")) 
 		Some(Resolver.file("snapshots", new File(base + "/snapshots")))
 	else Some(Resolver.file("releases", new File(base + "/releases")))
