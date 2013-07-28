@@ -1,18 +1,21 @@
+
 name := "xmlsoap-ersatz"
 
 organization := "play2.tools.xml"
 
-version := "0.3-SNAPSHOT"
+version := "0.2-SNAPSHOT"
 
-scalaVersion := "2.10.0"
+scalaVersion := "2.10.2"
 
 libraryDependencies ++= Seq(
-  "org.specs2" %% "specs2" % "1.7.1" % "test",
-  "junit" % "junit" % "4.8" % "test"  
+ "org.specs2" %% "specs2" % "1.12.3" % "test",
+ "junit" % "junit" % "4.8" % "test"  
 )
 
+
+
 publishTo <<=  version { (v: String) => 
-    val base = "../../workspace_pawelprazak/pawelprazak-mvn"
+    val base = "../../workspace_mandubian/mandubian-mvn"
 	if (v.trim.endsWith("SNAPSHOT")) 
 		Some(Resolver.file("snapshots", new File(base + "/snapshots")))
 	else Some(Resolver.file("releases", new File(base + "/releases")))
@@ -21,4 +24,7 @@ publishTo <<=  version { (v: String) =>
 publishMavenStyle := true
 
 publishArtifact in Test := false
+
+scalacOptions in Test ++= Seq("-Yrangepos")
+
 
